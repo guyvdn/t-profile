@@ -29,21 +29,10 @@ function loadSettings()
 {
     fullName.value = getCookie("fullName");
 
-    if (getCookie("nameForegroundColor") != "") {
-        nameBackgroundColor.value = getCookie("nameForegroundColor");
-    }
-
-    if (getCookie("nameBackgroundColor") != "") {
-        nameBackgroundColor.value = getCookie("nameBackgroundColor");
-    }
-
-    if (getCookie("fillForegroundColor") != "") {
-        fillForegroundColor.value = getCookie("fillForegroundColor");
-    }
-
-    if (getCookie("fillBackgroundColor") != "") {
-        fillBackgroundColor.value = getCookie("fillBackgroundColor");
-    }
+    nameForegroundColor.value = getCookie("nameForegroundColor") != "" ? getCookie("nameForegroundColor") : "#000000";
+	nameBackgroundColor.value = getCookie("nameBackgroundColor") != "" ? getCookie("nameBackgroundColor") : "#c0c0c0";
+	fillForegroundColor.value = getCookie("fillForegroundColor") != "" ?  getCookie("fillForegroundColor") : "#ffffff";
+	fillBackgroundColor.value = getCookie("fillBackgroundColor") != "" ? getCookie("fillBackgroundColor") : "#69be28";
 
     generalism1.value = getCookie("generalism1");
     generalism2.value = getCookie("generalism2");
@@ -137,17 +126,27 @@ function addSpecialty(text, value)
 
 function saveImage()
 {
+	var sheet = document.getElementById("boostrapsheet");
+	sheet.disabled = true;
+	
+	var vp = document.getElementById("viewportMeta").getAttribute("content");
+    document.getElementById("viewportMeta").setAttribute("content", "width=800");
+	
     let bgColor = useTransparenBackground.checked ? null :  "#ffffff";
 
     let container = document.getElementById("canvascontent");
-        html2canvas(container, {backgroundColor:bgColor}).then(function(canvas) {
-            var link = document.createElement("a");
-            document.body.appendChild(link);
-            link.download = "t-profile " + fullName.value + ".png";
-            link.href = canvas.toDataURL("image/png");
-            link.target = '_blank';
-            link.click();
-        });
+	
+	html2canvas(container, {backgroundColor:bgColor, scale:1, windowWidth:"1280px"}).then(function(canvas) {
+		var link = document.createElement("a");
+		document.body.appendChild(link);
+		link.download = "t-profile " + fullName.value + ".png";
+		link.href = canvas.toDataURL("image/png");
+		link.target = '_blank';
+		link.click();
+	}).then(function () {
+		document.getElementById("viewportMeta").setAttribute("content", vp);
+		sheet.disabled = false;
+    });	
 }
 
 function getCookie(cname) {

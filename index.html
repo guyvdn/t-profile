@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>T-Profile generator</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        
+<div class="container">
+    
+    <div class="card bg-light mb-3">
+        <h1 class="card-body">
+            T-Profile generator
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <h5 class="card-header">
+                    Parameters
+                </h5>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <label for="fullName" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="fullName" onkeyup="render();">
+                    </div>
+                    <div class="mb-1">
+                        <label for="generalism1" class="form-label">Generalism 1</label>
+                        <input type="text" class="form-control" id="generalism1" onkeyup="render();">
+                        <input type="range" class="custom-range" min="0" max="100" step="10" id="generalismRange1" onchange="render();"/>    
+                    </div>
+                    <div class="mb-1">
+                        <label for="generalism2" class="form-label">Generalism 2</label>
+                        <input type="text" class="form-control" id="generalism2" onkeyup="render();">
+                        <input type="range" class="custom-range" min="0" max="100" step="10" id="generalismRange2" onchange="render();"/>
+                    </div>
+                    <div class="mb-4">
+                        <label for="generalism3" class="form-label">Generalism 3</label>
+                        <input type="text" class="form-control" id="generalism3" onkeyup="render();">
+                        <input type="range" class="custom-range" min="0" max="100" step="10" id="generalismRange3" onchange="render();"/>
+                    </div>
+                    <div class="mb-1">
+                        <label for="specialty1" class="form-label">Specialty 1</label>
+                        <input type="text" class="form-control" id="specialty1" onkeyup="render();">
+                        <input type="range" class="custom-range" min="0" max="100" step="10" id="specialtyRange1" onchange="render();"/>    
+                    </div>
+                    <div class="mb-1">
+                        <label for="specialty2" class="form-label">Specialty 2</label>
+                        <input type="text" class="form-control" id="specialty2" onkeyup="render();">
+                        <input type="range" class="custom-range" min="0" max="100" step="10" id="specialtyRange2" onchange="render();"/>
+                    </div>
+                    <div class="mb-1">
+                        <label for="specialty3" class="form-label">Specialty 3</label>
+                        <input type="text" class="form-control" id="specialty3" onkeyup="render();">
+                        <input type="range" class="custom-range" min="0" max="100" step="10" id="specialtyRange3" onchange="render();"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col"> 
+            <div class="card mb-3">
+                <h5 class="card-header">
+                    Preview
+                </h5>
+                <div class="card-body">
+                    <div id="canvasborder" class="border rounded ml-auto mr-auto">       
+                        <div id="canvascontent">
+                            <div id="namebox" class="box"></div>
+                            <div id="profile">
+                                <div id="generalisms">
+                                </div>
+                                <div id="specialties">                            
+                                </div>   
+                            </div>    
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h5 class="card-header">
+                  Options
+                </h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-1 col-lg-6">
+                            <label for="nameForegroundColor" class="form-label">Name foreground color</label>
+                            <input type="color" id="nameForegroundColor" onchange="render();" value="#000000" style="width: 100%;">
+                        </div>
+                        <div class="mb-1 col-lg-6">
+                            <label for="nameBackgroundColor" class="form-label">Name background color</label>
+                            <input type="color" id="nameBackgroundColor" onchange="render();" value="#c0c0c0" style="width: 100%;">
+                        </div>
+                        <div class="mb-1 col-lg-6">
+                            <label for="fillForegroundColor" class="form-label">Fill foreground color</label>
+                            <input type="color" id="fillForegroundColor" onchange="render();" value="#ffffff" style="width: 100%;">
+                        </div>
+                        <div class="mb-1 col-lg-6">
+                            <label for="fillBackgroundColor" class="form-label">Fill background color</label>
+                            <input type="color" id="fillBackgroundColor" onchange="render();" value="#69be28" style="width: 100%;">
+                        </div>
+                    </div>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" value="" checked="checked" id="useTransparenBackground" onchange="render();">                    
+                        <label class="form-check-label" for="useTransparenBackground">
+                            Transparent background
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3" onclick="saveImage()">Save Image</button>                     
+                </div>             
+            </div>            
+        </div>
+    </div>
+    <div class="input-group">
+        <label class="form-control text-secondary" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">This site uses cookies to store the last values used</label>
+        <div class="input-group-append">
+            <button class="btn input-group-text" type="button" onclick="clearSettings()">Clear values</button>
+          </div>
+      </div>
+    </div>
+</div>
+
+<script src="html2canvas.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

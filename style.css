@@ -1,0 +1,77 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#canvasborder {
+  width: 408px;
+  height: 408px;
+  padding: 0;
+}
+
+#imageOptions {
+  width: 408px;
+  padding: 10px;
+}
+
+#canvascontent { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;  
+  font-family: "Open Sans", sans-serif;
+  font-size: 25px;
+  color: black;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+} 
+
+#profile { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;  
+  flex-direction: column;
+  height: 350px;
+} 
+
+.box{
+  margin:0;
+  background: rgb(105, 190, 40);
+  border: solid black;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 2em 1em 4em / 0.5em 3em;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  line-height: 35px;
+  width: 40px; 
+  align-items: center;
+}
+
+#namebox {
+  width: 350px;
+  background-color: #c0c0c0;
+}
+
+#generalisms {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+}
+
+#specialties {  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rotated-text {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
